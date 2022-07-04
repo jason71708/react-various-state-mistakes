@@ -1,5 +1,6 @@
 import React from 'react'
 import IntervalComponent from './IntervalComponent';
+import InvalidIntervalComponent from './InvalidIntervalComponent'
 
 function App() {
   const [open, setOpen] = React.useState(false);
@@ -11,7 +12,11 @@ function App() {
       <button onClick={() => setOpen(!open)}>Open</button>
       <button onClick={() => setNumber(number+1)}>Increase number</button>
       <br />
+      <h2>IntervalComponent</h2>
       {open && <IntervalComponent number={number}/>}
+      <br />
+      <h2>InvaildIntervalComponent</h2>
+      {open && <InvalidIntervalComponent number={number}/>}
     </div>
   );
 }

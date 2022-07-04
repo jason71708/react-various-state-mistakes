@@ -1,11 +1,11 @@
 import React from "react";
 
-const AsyncActionComponent = ({number}) => {
+const IntervalComponent = ({number}) => {
   const timeId = React.useRef(null);
 
   React.useEffect(() => {
     timeId.current = setInterval(() => {
-      console.log('current: ', number)
+      console.log('IntervalComponent: ', number)
     }, 2000 )
 
     return () => {
@@ -18,4 +18,4 @@ const AsyncActionComponent = ({number}) => {
   )
 }
 
-export default AsyncActionComponent;
+export default IntervalComponent;
