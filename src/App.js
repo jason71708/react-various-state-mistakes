@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import IntervalComponent from './IntervalComponent';
 
 function App() {
+  const [open, setOpen] = React.useState(false);
+  const [number, setNumber] = React.useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>App Number: {number}</h1>
+      <button onClick={() => setOpen(!open)}>Open</button>
+      <button onClick={() => setNumber(number+1)}>Increase number</button>
+      <br />
+      {open && <IntervalComponent number={number}/>}
     </div>
   );
 }
