@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <h1>App Number: {number}</h1>
-      <button onClick={() => setOpen(!open)}>Open</button>
-      <button onClick={() => setNumber(number+1)}>Increase number</button>
+      <button onClick={() => setOpen(!open)}>Toggle Open</button>
+      <button onClick={() => setNumber(number+1)}>Increase Number</button>
       <br />
       <h2>IntervalComponent</h2>
       {open && <IntervalComponent number={number}/>}
