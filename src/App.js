@@ -1,22 +1,20 @@
 import React from 'react'
-import IntervalComponent from './IntervalComponent';
-import InvalidIntervalComponent from './InvalidIntervalComponent'
+import { Routes, Route, Link } from "react-router-dom";
+import StateReference from './pages/StateReferenceDemo';
 
 function App() {
-  const [open, setOpen] = React.useState(false);
-  const [number, setNumber] = React.useState(0);
+  
 
   return (
-    <div className="App">
-      <h1>App Number: {number}</h1>
-      <button onClick={() => setOpen(!open)}>Toggle Open</button>
-      <button onClick={() => setNumber(number+1)}>Increase Number</button>
-      <br />
-      <h2>IntervalComponent</h2>
-      {open && <IntervalComponent number={number}/>}
-      <br />
-      <h2>InvaildIntervalComponent</h2>
-      {open && <InvalidIntervalComponent number={number}/>}
+    <div>
+      <nav>
+        <Link to="/">StateReference Demo</Link>
+        {/* <Link to="/about">About</Link> */}
+      </nav>
+      <Routes>
+        <Route path="/" element={<StateReference />} />
+        {/* <Route path="about" element={<About />} /> */}
+      </Routes>
     </div>
   );
 }
