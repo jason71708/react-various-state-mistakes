@@ -1,35 +1,30 @@
 import React from 'react'
+import { getRandomNumber } from '../utils'
 
-function App2() {
+function IncorrectSequentialUploadComponent() {
   const [uploading, setUploading] = React.useState(false);
-  const [items, setItems] = React.useState([1, 2, 99, 100]);
-
-  const getRandomNumber = (max = 1000) => {
-    return Math.floor(Math.random() * max)
-  }
+  const [items, setItems] = React.useState([getRandomNumber(), getRandomNumber()]);
 
   const startUpload = async () => {
-    const randomId = getRandomNumber()
+    if (uploading) return
+    console.log('items', items)
     setUploading(true)
 
     const uploadProcess = async (index) => {
       return new Promise((resolve, reject) => {
         setTimeout(async () => {
-          console.log(randomId, 'complete upload item', items[index])
-          console.log('index', index)
-          console.log('items', items)
-          if (index >= items.length - 1) {
-            resolve()
-          } else {
+          console.log('complete upload item', items[index])
+          if (index < items.length - 1) {
             await uploadProcess(index + 1)
           }
+          resolve()
         }, 2000)
       })
     }
 
     await uploadProcess(0)
     setUploading(false)
-    console.log(randomId, 'upload complete')
+    console.log('upload complete')
   }
 
   const cancelUpload = () => {
@@ -37,8 +32,7 @@ function App2() {
   }
 
   return (
-    <div className="App2">
-      <h1>App2</h1>
+    <div>
       <ul>
         {items.map((item) => (<li key={item}>{item}</li>))}
       </ul>
@@ -53,4 +47,4 @@ function App2() {
   );
 }
 
-export default App2;
+export default IncorrectSequentialUploadComponent;
