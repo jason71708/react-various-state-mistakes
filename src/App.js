@@ -1,19 +1,27 @@
 import React from 'react'
 import { Routes, Route, Link } from "react-router-dom";
-import StateReference from './pages/StateReferenceDemo';
+import CleanEffectDemo from './pages/CleanEffectDemo';
+import SequentialUploadDemo from './pages/SequentialUploadDemo';
 
 function App() {
-  
-
   return (
     <div>
       <nav>
-        <Link to="/">StateReference Demo</Link>
-        {/* <Link to="/about">About</Link> */}
+        Demo Links
+        <ul>
+          <li>
+            <Link to="/">Clean Effect Demo</Link>
+          </li>
+          <li>
+            <Link to="/sequential-upload-demo">Sequential Upload Demo</Link>
+          </li>
+        </ul>
       </nav>
+      <p>See console log to find different in these two component.</p>
       <Routes>
-        <Route path="/" element={<StateReference />} />
-        {/* <Route path="about" element={<About />} /> */}
+        <Route path="/" element={<CleanEffectDemo />} />
+        <Route path="sequential-upload-demo" element={<SequentialUploadDemo />} />
+        <Route path="/*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </div>
   );
