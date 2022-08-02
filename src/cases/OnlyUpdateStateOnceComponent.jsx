@@ -11,7 +11,7 @@ const OnlyUpdateStateOnceComponent = () => {
 
   return (
     <div>
-      <button onClick={plusOneThreeTimes}>Add +1 three times</button>
+      <button onClick={plusOneThreeTimes}>Add 1 three times</button>
       <p>{num}</p>
     </div>
   )
