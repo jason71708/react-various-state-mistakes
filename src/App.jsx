@@ -1,24 +1,35 @@
 import React from 'react'
+import './App.css'
 import { Routes, Route, Link } from "react-router-dom";
 import CleanEffectDemo from './pages/CleanEffectDemo';
 import SequentialUploadDemo from './pages/SequentialUploadDemo';
 import MultipleSetStateDemo from './pages/MultipleSetStateDemo';
 
+const routes = [
+  {
+    label: 'Clean Effect Demo',
+    to: '/'
+  },
+  {
+    label: 'Sequential Upload Demo',
+    to: '/sequential-upload-demo'
+  },
+  {
+    label: 'Multiple SetState Demo',
+    to: '/multiple-set-state-demo'
+  },
+]
+
 function App() {
   return (
-    <div>
-      <nav>
-        Demo Links
-        <ul>
-          <li>
-            <Link to="/">Clean Effect Demo</Link>
-          </li>
-          <li>
-            <Link to="/sequential-upload-demo">Sequential Upload Demo</Link>
-          </li>
-          <li>
-            <Link to="/multiple-set-state-demo">Multiple SetState Demo</Link>
-          </li>
+    <>
+      <nav className='menu'>
+        <ul className='menu__list'>
+          {routes.map(route => (
+            <li key={route.to} className='menu__list__item'>
+              <Link to={route.to}>{route.label}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <p>See console log to find different in these two component.</p>
@@ -28,7 +39,7 @@ function App() {
         <Route path="multiple-set-state-demo" element={<MultipleSetStateDemo />} />
         <Route path="/*" element={<h1>404 Not Found</h1>} />
       </Routes>
-    </div>
+    </>
   );
 }
 

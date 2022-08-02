@@ -1,0 +1,17 @@
+.menu {
+  background-color: rgba(62,59,75,1);
+  padding: 0.5rem;
+  display: inline-block;
+  border-radius: 1rem;
+}
+
+.menu__list {
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+}
+
+.menu__list__item {
+  display: inline-block;
+  margin-right: 1rem;
+}
