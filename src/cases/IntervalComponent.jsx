@@ -5,7 +5,7 @@ const IntervalComponent = ({number}) => {
 
   React.useEffect(() => {
     timeId.current = setInterval(() => {
-      console.log('IntervalComponent: ', number)
+      window.customConsoleLog('IntervalComponent: ', number)
     }, 2000 )
 
     return () => {

@@ -7,13 +7,13 @@ function IncorrectSequentialUploadComponent() {
 
   const startUpload = async () => {
     if (uploading) return
-    console.log('items', items)
+    window.customConsoleLog('items', items)
     setUploading(true)
 
     const uploadProcess = async (index) => {
       return new Promise((resolve, reject) => {
         setTimeout(async () => {
-          console.log('complete upload item', items[index])
+          window.customConsoleLog('complete upload item', items[index])
           if (index < items.length - 1) {
             await uploadProcess(index + 1)
           }
@@ -24,7 +24,7 @@ function IncorrectSequentialUploadComponent() {
 
     await uploadProcess(0)
     setUploading(false)
-    console.log('upload complete')
+    window.customConsoleLog('upload complete')
   }
 
   const cancelUpload = () => {

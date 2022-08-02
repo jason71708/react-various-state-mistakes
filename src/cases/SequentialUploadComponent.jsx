@@ -8,17 +8,17 @@ function SequentialUploadComponent() {
 
   const startUpload = async () => {
     if (processId.current && uploading) return
-    console.log('items', items)
+    window.customConsoleLog('items', items)
     const scopeProcessId = getRandomNumber()
     processId.current = scopeProcessId
     setUploading(true)
 
     try {
-      const uploadProcess = async (index) => {
+      const uploadProcess = (index) => {
         return new Promise((resolve, reject) => {
           setTimeout(async () => {
             if (scopeProcessId === processId.current) {
-              console.log(scopeProcessId, 'complete upload item', items[index])
+              window.customConsoleLog(scopeProcessId, 'complete upload item', items[index])
               if (index < items.length - 1) {
                 await uploadProcess(index + 1)
               }
@@ -31,9 +31,9 @@ function SequentialUploadComponent() {
       }
   
       await uploadProcess(0)
-      console.log(scopeProcessId, 'upload complete')
+      window.customConsoleLog(scopeProcessId, 'upload complete')
     } catch (error) {
-      console.log(error)
+      window.customConsoleLog(error)
     } finally {
       if (scopeProcessId === processId.current) {
         processId.current = ''

@@ -4,7 +4,7 @@ const InvalidIntervalComponent = ({number}) => {
 
   React.useEffect(() => {
     setInterval(() => {
-      console.log('InvalidIntervalComponent: ', number)
+      window.customConsoleLog('InvalidIntervalComponent: ', number)
     }, 2000 )
   }, [number])
   return (

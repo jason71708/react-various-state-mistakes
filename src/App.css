@@ -1,5 +1,5 @@
 .menu {
-  background-color: rgba(62,59,75,1);
+  background-color: var(--secondary-color);
   padding: 0.5rem;
   display: inline-block;
   border-radius: 1rem;
