@@ -8,7 +8,11 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={
+      process.env.NODE_ENV === 'production' ?
+      process.env.REACT_APP_GITHUB_PAGE_PATH :
+      '/'
+    }>
       <App />
     </BrowserRouter>
   </React.StrictMode>
