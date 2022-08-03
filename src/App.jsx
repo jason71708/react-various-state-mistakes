@@ -32,7 +32,7 @@ function App() {
           ))}
         </ul>
       </nav>
-      <p>See console log to find different in these two component.</p>
+      <p>See console log to find differences in these two components.</p>
       <Routes>
         <Route path="/" element={<CleanEffectDemo />} />
         <Route path="sequential-upload-demo" element={<SequentialUploadDemo />} />

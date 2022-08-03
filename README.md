@@ -10,17 +10,17 @@ This is about several common mistakes about React state.
 
 ## Clean Effect
 
-`React.useEffect` will excute every time when state in dependency was change.
-In previous excution of `React.useEffect`, the states it used isn't same as the new states after update.
-So in `React.useEffect`, it should return a function (clean effect), that do something to unsubscribe (like `eventListener`) or cancel (like `setTimeInterval`) to prevent use old state and excute callback function multiple time.
-The clean effect fuction will be invoke before next `React.useEffect` excute.
+`React.useEffect` will execute every time when the state in dependency was changed.
+In the previous execution of `React.useEffect`, the states it used aren’t the same as the new states after an update.
+So in `React.useEffect`, it should return a function (clean effect), that does something to unsubscribe (like `eventListener`) or cancel (like `setTimeInterval`) to prevent using the old state and executing the callback function multiple times.
+The clean effect function will be invoked before executing the next `React.useEffect`.
 
 ## Sequential Upload
 
-In React component, if state isn't a primitive type, state's reference will be different from previous update.
+In React component, if a state isn’t a primitive type, the state’s reference will be different from the previous update.
 
 ## Multiple Set State
 
-If there are multiple `setState`s excute in a update and only give a value to `setState`, final state will be the last one.
-Give `setState` a callback function can get the updated state by previous `setState`.
-And then, useing updated state in callback function to do some calulate and return a new state.
+If there are multiple `setState`s executed in an update and only give a value to `setState`, the final state will be the last one.
+Give `setState` a callback function that can get the updated state by the previous `setState`.
+And then, use the updated state in a callback function to do some calculations and return a new state.
